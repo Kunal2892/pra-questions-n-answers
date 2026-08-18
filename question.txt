@@ -1,0 +1,169 @@
+Create a Java program to manage and analyze movie information using classes, objects, HashMap, ArrayList, and HashSet.
+
+You are given information about N movies. Each movie has:
+
+movieName — String
+genre — String
+rating — float
+
+Each movie is associated with a unique movieId.
+
+You must create a Movie class with:
+
+private data members
+a parameterized constructor
+getter methods for all attributes
+
+Store the movies in the following structure:
+
+Map<Integer, List<Movie>>
+
+where the key is the movie ID and the value is a list containing the corresponding movie.
+
+Task 1 — Find Movies by Rating
+
+Implement:
+
+public static List<Movie> findMoviesByRating(
+    Map<Integer, List<Movie>> movieMap,
+    float rating
+)
+
+The method should:
+
+Search all movies in the map.
+Find movies whose rating matches the given rating.
+Remove duplicate ratings using a suitable collection.
+Return the resulting list.
+If no movie has the requested rating, return an empty list.
+
+The rating must be displayed with exactly 2 decimal places.
+
+Task 2 — Calculate Average Rating by Genre
+
+Implement:
+
+public static float calculateAverage(
+    Map<Integer, List<Movie>> movieMap,
+    String genre
+)
+
+The method should:
+
+Find all movies belonging to the given genre.
+Calculate their average rating.
+Return the average rating.
+If there are no movies belonging to the requested genre, return:
+0.00
+
+The average must be displayed with 2 decimal places.
+
+Genre comparison should be case-insensitive.
+
+Input Format
+
+The first line contains an integer N, representing the number of movies.
+
+The next N movie records contain:
+
+movieId
+movieName
+genre
+rating
+
+Each value is provided on a separate line.
+
+After the movie information:
+
+desiredRating
+desiredGenre
+
+are provided.
+
+Output Format
+
+For every movie returned by the rating search, print:
+
+Movie Name: <movieName>
+Genre: <genre>
+Rating: <rating>
+
+If no movie matches the requested rating, print:
+
+No movie with that rating
+
+Finally, print:
+
+Average Rating: <average>
+
+The average must contain exactly 2 decimal places.
+
+Sample Input
+8
+101
+Avengers
+Action
+8.50
+102
+Batman
+Action
+9.00
+103
+Inception
+Sci-Fi
+8.50
+104
+Titanic
+Romance
+8.50
+105
+Joker
+Drama
+9.00
+106
+Avatar
+Sci-Fi
+7.50
+107
+Dangal
+Drama
+8.00
+108
+Interstellar
+Sci-Fi
+8.50
+8.50
+Sci-Fi
+Sample Output
+Movie Name: Avengers
+Genre: Action
+Rating: 8.50
+Average Rating: 8.17
+Explanation
+
+Movies having rating 8.50:
+
+Avengers       8.50
+Inception      8.50
+Titanic        8.50
+Interstellar   8.50
+
+Since duplicate ratings must be removed, only one movie with rating 8.50 is returned.
+
+For genre Sci-Fi:
+
+Inception       8.50
+Avatar          7.50
+Interstellar    8.50
+
+Average:
+
+(8.50 + 7.50 + 8.50) / 3
+= 8.1666...
+= 8.17
+Constraints
+1 ≤ N ≤ 100
+1 ≤ movieId ≤ 10000
+0.0 ≤ rating ≤ 10.0
+movieName is non-empty
+genre is non-empty
